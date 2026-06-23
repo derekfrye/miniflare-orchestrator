@@ -1,0 +1,51 @@
+body {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    margin: 2rem;
+    line-height: 1.5;
+    color: #122;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.1;
+}
+
+code,
+pre {
+    background: #f5f7fb;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+}
+
+pre {
+    padding: 1rem;
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0 2rem;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #d8dee9;
+    vertical-align: top;
+}
+
+.muted {
+    color: #5b6575;
+}
+
+article {
+    margin-bottom: 2rem;
+}

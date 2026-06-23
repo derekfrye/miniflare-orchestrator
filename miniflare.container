@@ -1,0 +1,29 @@
+# Quadlet unit for the shared Miniflare runtime host container.
+#
+# Build the image from the repository root:
+#   podman build -t localhost/djf/miniflare:latest -f Dockerfile .
+#
+# The named volume mounted at /work/host will be populated by the container.
+# The runtime bootstrap creates the per-project directories automatically.
+# The manifest still needs to be available to the container at startup.
+
+[Unit]
+Description=Miniflare Worker Runtime Host Container
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+ContainerName=miniflare
+Image=localhost/djf/miniflare:latest
+Pull=never
+PublishPort=8786:8786
+PublishPort=8787-8899:8787-8899
+PublishPort=8900-8999:8900-8999
+# TODO: by end user, replace $miniflare with the actual named volume, e.g. miniflare
+Volume=$miniflare:/work/host
+# TODO: by end user, replace network name and IPs with your actuals
+Network=wirehole-squid:ip=10.3.0.105,ip6=fd00::103
+
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,32 @@
+[package]
+name = "worker-runtime-host-gen"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+members = [
+    ".",
+    "miniflare-lease-client",
+]
+
+[dependencies]
+axum = "0"
+base64 = "0"
+cap-std = "4"
+clap = { version = "4", features = ["derive"] }
+notify = "8"
+maud = { version = "0.27", features = ["axum"] }
+reqwest = { version = "0", default-features = false, features = ["rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+schemars = "1"
+yaml_serde = "0"
+tokio = { version = "1", features = ["io-util", "macros", "net", "process", "rt-multi-thread", "sync", "time"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[dev-dependencies]
+tempfile = "3"
+tower = "0"
+
+[lints.rust]
+unsafe_code = "forbid"

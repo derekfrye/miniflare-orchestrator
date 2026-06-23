@@ -1,0 +1,13 @@
+[package]
+name = "miniflare-lease-client"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+base64 = "0"
+reqwest = { version = "0", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[lints.rust]
+unsafe_code = "forbid"
