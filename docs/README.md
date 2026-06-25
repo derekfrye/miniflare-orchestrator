@@ -9,12 +9,17 @@ runtimes need isolated ports, state, logs, and restart lifecycles.
 The workspace also includes `miniflare-lease-client`, a small blocking Rust
 client for creating, bundling, restarting, probing, and deleting test leases.
 
-## What It Provides (at a high level)
+## What it provides
 
-- example Quadlet unit for starting the orchestrator
-- a control-plane server for starting and stopping Miniflare through leased workers (see [lease workflow](#lease-workflow) for details)
-- per-lease runtime, static, state, and log directories
+- a control-plane server for starting and stopping Miniflare through leases (see [lease workflow](#lease-workflow) for details)
+- per-lease runtime, static, state, and log directories to isolate workers and inspect state
+- an example Quadlet unit for starting the orchestrator
 - Miniflare and Wrangler-backed launch modes
+
+## Why it exists
+- local-only, multi-tenant control plane for Cloudflare worker test runtimes
+- rapidly deploy, start, and stop Miniflare-backed for integration tests that need network access to a realistic runtime
+- faster and more isolated than running several `wrangler dev` processes in parallel
 
 ## Supporting files
 
